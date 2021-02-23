@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         // backgroundColor: 'red'
     },
-    rightContainer: {
-        alignSelf: 'flex-end'
-    },
     bottomContainer: {
-        padding: 10
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end'
     },
     handle: {
         color: '#fff',
@@ -43,6 +43,38 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         marginLeft: 5
+    },
+
+    songImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        borderWidth: 5,
+        borderColor: '#4c4c4c'
+    },
+
+    // Right Container
+    rightContainer: {
+        alignSelf: 'flex-end',
+        height: 300,
+        justifyContent: 'space-between',
+        marginRight: 5
+    },
+    profilePicture: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        borderWidth: 2,
+        borderColor: '#fff'
+    },
+    iconContainer: {
+        alignItems: 'center'
+    },  
+    statsLabel: {
+        color: '#fff',
+        fontSize: 15,
+        fontWeight: '600',
+        marginTop: 5
     }
 });
 
