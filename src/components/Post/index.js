@@ -8,7 +8,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
-const Post = () => {
+const Post = (props) => {
+  const { post } = props;
   const [paused, setPaused] = useState(false);
 
   const onPlayPausePress = () => {
@@ -21,8 +22,7 @@ const Post = () => {
       <TouchableWithoutFeedback onPress={onPlayPausePress}>
         <Video
           source={{
-            uri:
-              'https://d8vywknz0hvjw.cloudfront.net/fitenium-media-prod/videos/45fee890-a74f-11ea-8725-311975ea9616/proccessed_720.mp4',
+            uri: post.videoUri
           }}
           style={styles.video}
           onError={(e) => console.log(e)}
@@ -38,45 +38,43 @@ const Post = () => {
             <Image
               style={styles.profilePicture}
               source={{
-                uri:
-                  'https://wwd.com/wp-content/uploads/2020/10/AE4A7501.jpg?crop=366px%2C407px%2C1303px%2C870px&resize=640%2C415',
+                uri: post.user.imageUri
               }}
             />
           </View>
           <View style={styles.iconContainer}>
             <AntDesign name={'heart'} size={40} color={'white'} />
-            <Text style={styles.statsLabel}>123</Text>
+            <Text style={styles.statsLabel}>{post.likes}</Text>
           </View>
 
           <View style={styles.iconContainer}>
             <FontAwesome name={'commenting'} size={40} color={'white'} />
-            <Text style={styles.statsLabel}>123</Text>
+            <Text style={styles.statsLabel}>{post.comments}</Text>
           </View>
 
           <View style={styles.iconContainer}>
             <Fontisto name={'share-a'} size={35} color={'white'} />
-            <Text style={styles.statsLabel}>123</Text>
+            <Text style={styles.statsLabel}>{post.shares}</Text>
           </View>
         </View>
 
         <View style={styles.bottomContainer}>
           <View>
-            <Text style={styles.handle}>@dhruvbodani</Text>
-            <Text style={styles.description}>hahaha my boy @xenowits</Text>
+            <Text style={styles.handle}>@{post.user.username}</Text>
+            <Text style={styles.description}>{post.description}</Text>
 
             <View style={styles.songRow}>
               {/* Song Icon */}
               <Entypo name={'beamed-note'} size={24} color={'white'}></Entypo>
               {/* Song Name */}
-              <Text style={styles.songName}>In the end</Text>
+              <Text style={styles.songName}>{post.song}</Text>
             </View>
           </View>
 
           <Image
             style={styles.songImage}
             source={{
-              uri:
-                'https://wwd.com/wp-content/uploads/2020/10/AE4A7501.jpg?crop=366px%2C407px%2C1303px%2C870px&resize=640%2C415',
+              uri: post.songImage
             }}
           />
         </View>
