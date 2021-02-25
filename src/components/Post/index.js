@@ -32,13 +32,15 @@ const Post = (props) => {
       <TouchableWithoutFeedback onPress={onPlayPausePress}>
         <Video
           source={{
-            uri: post.videoUri
+            uri: post.videoUri,
+            type: "m3u8"
           }}
           style={styles.video}
           onError={(e) => console.log(e)}
           resizeMode={'cover'}
           repeat={true}
           paused={paused}
+          onError={e => console.log(e)}
         />
       </TouchableWithoutFeedback>
 
